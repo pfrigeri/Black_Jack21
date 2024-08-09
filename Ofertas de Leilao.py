@@ -25,25 +25,24 @@ while another_person:
     else:
         #lance_minimo = oferta
         lances_leilao[nome] = oferta,
-    continuar = input("Há algum outro participante?(yes/no): ").lower()
+    continuar = input("Há algum outro participante?(sim/nao): ").lower()
     print("\n"*10)
         
-    if continuar == "no":
+    if continuar == "nao":
         another_person = False
 
-maior_oferta = 0
+def Vencedor_Leilao(lances_dicionario):
+    maior_oferta = 0
+    for participante in lances_dicionario:
+        print(participante)
+        print(f"Lance Ofertado:R${lances_dicionario[participante]}")     
+        if lances_dicionario[participante] > maior_oferta:
+            maior_oferta = lances_dicionario[participante]
+            comprador_final = participante 
+    print(f"Parabéns {comprador_final} !\n Você venceu o leilão e portanto é o comprador do item ! ")   
 
-# for participante in lances_leilao:
-#     print(participante)
-#     print(f"Lance Ofertado:R${lances_leilao[participante]}")
-#     if lances_leilao[participante] > maior_oferta:
-#         maior_oferta = lances_leilao[participante]     
-#     if lances_leilao[participante] >= maior_oferta:
-#         comprador_final = participante    
 
-#print(f"Parabéns {comprador_final} !\n Você venceu o leilão e portanto é o comprador do item ! ") 
-
-    
+Vencedor_Leilao(lances_leilao)
 
 
 print(lances_leilao)
