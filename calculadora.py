@@ -36,15 +36,15 @@ while continuar:
     op = input("Escolha uma operação: ")
     n2 = int(input("Digite outro número: "))
     resultado = operacoes[op](n1,n2)
-    print(f"Resultado: {resultado}\n")
-    continuar_operando = input("Deseja fazer outra operação a partir deste resultado?(s/n) ou [x] para encerrar: ").lower()
+    print(f"{n1} {op} {n2} = {resultado}\n")
+    continuar_operando = input(f"Deseja fazer outra operação a partir de {resultado}?(s/n) ou [x] para encerrar: ").lower()
     if continuar_operando == "s":
         n1 = resultado
         op = input("Escolha uma operação(+ , - , * , /): ")
         n2 = int(input("Digite outro número: "))
         resultado = operacoes[op](n1,n2)
-        print(f"Resultado: {resultado}\n")
-        continuar_operando = input("Deseja fazer outra operação a partir deste resultado?(s/n) ou [x] para encerrar: ").lower()
+        print(f"{n1} {op} {n2} = {resultado}\n")
+        continuar_operando = input(f"Deseja fazer outra operação a partir de {resultado}?(s/n) ou [x] para encerrar: ").lower()
         if continuar_operando == "x":
             print("Até logo !")
             break
