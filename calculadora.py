@@ -29,25 +29,24 @@ operacoes = {
 #Laço
 
 continuar = True
-while continuar:
-    n1 = int(input("\nDigite um número: "))
-    for simbolo in operacoes:
-        print(simbolo)
-    op = input("Escolha uma operação: ")
-    n2 = int(input("Digite outro número: "))
-    resultado = operacoes[op](n1,n2)
-    print(f"{n1} {op} {n2} = {resultado}\n")
-    continuar_operando = input(f"Deseja fazer outra operação a partir de {resultado}?(s/n) ou [x] para encerrar: ").lower()
-    if continuar_operando == "s":
-        n1 = resultado
-        op = input("Escolha uma operação(+ , - , * , /): ")
+while True:
+    #Permite que o usuario faça outra conta sem nenhuma relação com a anterior ou encerre o programa
+    n1 = int(input("\nDigite um número ou [0] para encerrar: "))
+    if n1 == 0:
+        print("Até logo !")
+        break
+    while continuar:
+    #Separa a atribuição do primeiro número do resto do programa permitindo tanto que uma conta com o resultado anterior seja efetuada
+    #quanto que uma conta completamente nova seja executada.
+        for simbolo in operacoes:
+            print(simbolo)
+        op = input("Escolha uma operação: ")
         n2 = int(input("Digite outro número: "))
         resultado = operacoes[op](n1,n2)
         print(f"{n1} {op} {n2} = {resultado}\n")
-        continuar_operando = input(f"Deseja fazer outra operação a partir de {resultado}?(s/n) ou [x] para encerrar: ").lower()
-        if continuar_operando == "x":
-            print("Até logo !")
-            break
-    elif continuar_operando == "x":
-        print("Até logo !")
-        break
+        continuar_operando = input(f"Deseja fazer outra operação a partir do numero {resultado} ? (s/n): ").lower()
+        if continuar_operando == "s":
+            n1 = resultado
+        elif continuar_operando == "n":
+            continuar = False
+            
